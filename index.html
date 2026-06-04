@@ -138,12 +138,11 @@ nav.scrolled {
   height: 64px; width: auto;
   transition: opacity .2s, filter .45s;
   /* on transparent nav (dark bg): convert logo to white silhouette */
-  filter: brightness(100) saturate(0);
+  filter: brightness(0) invert(1);
 }
 .nav-logo img:hover { opacity: .82; }
 nav.scrolled .nav-logo img {
   filter: none;
-  mix-blend-mode: multiply;
 }
 
 .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
@@ -1245,7 +1244,7 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
 <!-- ═══ NAV ══════════════════════════════════════════════════════ -->
 <nav id="mainNav">
   <a class="nav-logo" href="index.html">
-    <img src="ChatGPT%20Image%20Jun%203%2C%202026%20at%2005_44_00%20PM.webp" alt="Manja Gradnja logo">
+    <img src="logo-transparent.webp" alt="Manja Gradnja logo">
   </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="radovi.html">Radovi</a></li>

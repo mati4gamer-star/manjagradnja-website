@@ -1277,6 +1277,15 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
 
 /* ── iOS DOUBLE-TAP FIX ─────────────────────────────────────────── */
 a, button, [role="button"] { touch-action: manipulation; cursor: pointer; }
+@media (hover: none), (pointer: coarse) {
+  .btn-outline:hover, .btn-primary:hover, .btn-channel:hover,
+  .btn-submit:hover, .nav-cta:hover, .hero-cta:hover,
+  .at-cta-link:hover, .usluga-card:hover, .process-step:hover,
+  .about-feature:hover, .kontakt-item:hover, .project-card:hover,
+  .hp-item:hover, .gm-item:hover, .social-btn:hover {
+    transform: none !important; box-shadow: none !important;
+  }
+}
 
 /* ── MOBILE MENU OPEN ───────────────────────────────────────────── */
 nav.menu-open {

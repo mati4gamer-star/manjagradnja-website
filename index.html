@@ -1275,6 +1275,21 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
 /* cta strip at bottom of home page sections */
 .section-cta { margin-top: 2.5rem; }
 
+/* ── MOBILE MENU OPEN ───────────────────────────────────────────── */
+nav.menu-open {
+  background: rgba(253,250,244,.97) !important;
+  border-bottom-color: var(--border) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+nav.menu-open .nav-logo img { filter: none !important; }
+nav.menu-open .burger span  { background: var(--text) !important; }
+
+/* ── BURGER FIX — no dots/tap highlight ────────────────────────── */
+.burger { -webkit-tap-highlight-color: transparent; outline: none; }
+.burger:focus, .burger:focus-visible { outline: none; box-shadow: none; }
+.nav-links li { list-style: none !important; }
+.nav-links li::marker { display: none !important; }
+
 </style>
 </head>
 <body>
@@ -1544,8 +1559,10 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
 function toggleMenu() {
   var links = document.getElementById('navLinks');
   var btn   = document.getElementById('burger');
+  var nav   = document.getElementById('mainNav');
   links.classList.toggle('open');
   btn.classList.toggle('open');
+  nav.classList.toggle('menu-open');
 }
 
 // close menu on nav link click

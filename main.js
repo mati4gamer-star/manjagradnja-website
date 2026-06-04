@@ -42,8 +42,10 @@
 function toggleMenu() {
   var links = document.getElementById('navLinks');
   var btn   = document.getElementById('burger');
+  var nav   = document.getElementById('mainNav');
   links.classList.toggle('open');
   btn.classList.toggle('open');
+  nav.classList.toggle('menu-open');
 }
 
 // close menu on nav link click

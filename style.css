@@ -1323,3 +1323,21 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
   #lb-img { max-width: 96vw; max-height: 78vh; }
   .lb-footer { width: 92vw; }
 }
+
+/* ── MOBILE MENU OPEN — nav gets cream background ──────────────── */
+nav.menu-open {
+  background: rgba(253,250,244,.97) !important;
+  border-bottom-color: var(--border) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+nav.menu-open .nav-logo img { filter: none !important; }
+nav.menu-open .burger span  { background: var(--text) !important; }
+
+/* ── BURGER BUTTON — remove dots/artifacts ──────────────────────── */
+.burger {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+.burger:focus, .burger:focus-visible { outline: none; box-shadow: none; }
+.nav-links li { list-style: none !important; }
+.nav-links li::marker, .nav-links li::before { display: none !important; content: '' !important; }

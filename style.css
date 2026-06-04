@@ -1,5 +1,6 @@
 /* ── RESET & VARIABLES ─────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root { color-scheme: light; }
 
 :root {
   --gold:       #A67C2A;

@@ -205,8 +205,6 @@ if (heroStats) {
 }
 
 /* ── CONTACT FORM ─────────────────────────────────────────────── */
-var N8N_WEBHOOK_URL = 'WEBHOOK_URL_OVDE';
-
 function posaljiUpit() {
   var ime    = document.getElementById('f-ime').value.trim();
   var tel    = document.getElementById('f-tel').value.trim();
@@ -222,12 +220,13 @@ function posaljiUpit() {
   btn.textContent = 'Šalje se...';
   btn.disabled = true;
 
-  fetch(N8N_WEBHOOK_URL, {
+  fetch('https://formspree.io/f/xzdqzzza', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ ime: ime, tel: tel, usluga: usluga, poruka: poruka })
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({ ime: ime, telefon: tel, usluga: usluga, poruka: poruka })
   })
-  .then(function() {
+  .then(function(res) {
+    if (!res.ok) throw new Error('network');
     document.getElementById('formSuccess').style.display = 'block';
     document.getElementById('f-ime').value    = '';
     document.getElementById('f-tel').value    = '';

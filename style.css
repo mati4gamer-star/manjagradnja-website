@@ -96,7 +96,7 @@ nav.scrolled .nav-links a.active { color: var(--gold); }
   transition: background .2s, border-color .2s, transform .15s;
 }
 .nav-cta::after { display: none !important; }
-.nav-cta:hover { background: rgba(255,255,255,.14) !important; transform: translateY(-1px); }
+.nav-cta:hover { background: rgba(255,255,255,.14) !important; }
 nav.scrolled .nav-cta {
   background: var(--gold) !important;
   border-color: var(--gold) !important;
@@ -196,8 +196,8 @@ nav.scrolled .burger span { background: var(--text); }
   transition: background .2s, transform .2s, box-shadow .2s;
 }
 .btn-primary:hover {
-  background: var(--gold-dark); transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(166,124,42,.42);
+  background: var(--gold-dark);
+  box-shadow: 0 10px 36px rgba(166,124,42,.50);
 }
 .btn-outline {
   border: 1.5px solid var(--gold); color: var(--gold);
@@ -208,8 +208,8 @@ nav.scrolled .burger span { background: var(--text); }
   transition: background .2s, transform .2s, box-shadow .2s;
 }
 .btn-outline:hover {
-  background: var(--gold-pale); transform: translateY(-2px);
-  box-shadow: 0 4px 18px rgba(166,124,42,.16);
+  background: var(--gold-pale);
+  box-shadow: 0 6px 24px rgba(166,124,42,.24);
 }
 
 .hero-stats {
@@ -624,7 +624,7 @@ section { padding: 6rem 5%; }
   text-decoration: none; font-weight: 600; font-size: .86rem;
   transition: transform .2s, box-shadow .2s;
 }
-.btn-channel:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.btn-channel:hover { box-shadow: 0 8px 28px rgba(0,0,0,.18); }
 .btn-ch-wa   { background: var(--wa); color: var(--white); }
 .btn-ch-call { background: var(--gold); color: var(--white); }
 .btn-channel svg { width: 18px; height: 18px; }
@@ -669,8 +669,8 @@ section { padding: 6rem 5%; }
   transition: background .2s, transform .2s, box-shadow .2s;
 }
 .btn-submit:hover {
-  background: var(--gold-dark); transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(166,124,42,.38);
+  background: var(--gold-dark);
+  box-shadow: 0 10px 32px rgba(166,124,42,.44);
 }
 .form-note { font-size: .78rem; color: var(--text-muted); margin-top: .7rem; text-align: center; }
 .form-note a { color: var(--gold); }
@@ -805,7 +805,7 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
 .hero-cta:hover {
   background: rgba(255,255,255,.14);
   border-color: rgba(255,255,255,.9);
-  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(255,255,255,.10);
 }
 
 /* slide controls */
@@ -975,6 +975,7 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
   .about-teaser { padding: 4rem 5%; }
   .home-projects { padding: 4rem 5%; }
   nav { height: 72px; }
+  .nav-links { top: 72px; }
 
   section { padding: 3.5rem 5%; }
   .hero { padding: 5.5rem 5% 4rem; }
@@ -1342,30 +1343,11 @@ nav.menu-open .burger span  { background: var(--text) !important; }
 .nav-links li { list-style: none !important; }
 .nav-links li::marker, .nav-links li::before { display: none !important; content: '' !important; }
 
-/* ── iOS DOUBLE-TAP FIX ─────────────────────────────────────────── */
-/* Prevents iOS from requiring 2 taps on buttons/links with hover transforms */
+/* ── iOS TAP FIX ─────────────────────────────────────────────────── */
 a, button, [role="button"] {
   touch-action: manipulation;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
+a:focus, button:focus, [role="button"]:focus { outline: none; }
 
-/* ── REMOVE HOVER TRANSFORMS ON TOUCH DEVICES ──────────────────── */
-/* iOS fires hover on first tap which moves element, causing missed click */
-@media (hover: none), (pointer: coarse) {
-  .btn-outline:hover,
-  .btn-primary:hover,
-  .btn-channel:hover,
-  .btn-submit:hover,
-  .nav-cta:hover,
-  .hero-cta:hover,
-  .at-cta-link:hover,
-  .usluga-card:hover,
-  .process-step:hover,
-  .about-feature:hover,
-  .kontakt-item:hover,
-  .project-card:hover,
-  .hp-item:hover,
-  .gm-item:hover,
-  .at-stat-item:hover,
-  .social-btn:hover { transform: none !important; box-shadow: none !important; }
-}

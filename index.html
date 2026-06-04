@@ -926,7 +926,8 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
   text-decoration: none; font-weight: 500; font-size: .88rem;
   letter-spacing: .04em;
   position: relative;
-  transition: opacity .2s, transform .25s;
+  outline: none; -webkit-tap-highlight-color: transparent;
+  transition: opacity .2s;
   align-self: flex-start;
   animation: fade-up .8s ease both .45s;
 }
@@ -1133,6 +1134,7 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
   .about-teaser { padding: 4rem 5%; }
   .home-projects { padding: 4rem 5%; }
   nav { height: 72px; }
+  .nav-links { top: 72px; }
 
   section { padding: 3.5rem 5%; }
   .hero { padding: 5.5rem 5% 4rem; }
@@ -1276,7 +1278,12 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
 .section-cta { margin-top: 2.5rem; }
 
 /* ── iOS TAP FIX ─────────────────────────────────────────────────── */
-a, button, [role="button"] { touch-action: manipulation; cursor: pointer; }
+a, button, [role="button"] {
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+a:focus, button:focus, [role="button"]:focus { outline: none; }
 
 /* ── MOBILE MENU OPEN ───────────────────────────────────────────── */
 nav.menu-open {

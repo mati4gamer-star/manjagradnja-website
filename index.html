@@ -1453,12 +1453,10 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
 })();
 
 /* ── MOBILE --vh FIX (iOS address bar) ───────────────────────── */
+/* Set ONCE at load — intentionally NO resize listener.
+   This freezes the hero height so iOS address bar show/hide never triggers reflow. */
 (function() {
-  function setVh() {
-    document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + 'px');
-  }
-  setVh();
-  window.addEventListener('resize', setVh, { passive: true });
+  document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + 'px');
 })();
 
 /* ── HERO PARALLAX (desktop only) ────────────────────────────── */

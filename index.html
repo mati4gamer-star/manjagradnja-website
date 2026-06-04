@@ -824,7 +824,7 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
 }
 .hero-slide {
   position: absolute; inset: 0;
-  opacity: 0; transition: opacity 2s ease;
+  opacity: 0; transition: opacity 0.7s ease;
 }
 .hero-slide.active { opacity: 1; }
 .slide-bg {
@@ -838,27 +838,28 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
 .slide-bg-1, .slide-bg-2, .slide-bg-3 { background: none; }
 
 .slide-kb {
-  position: absolute; inset: -6%;
+  position: absolute; inset: -3%;
   background-size: cover; background-position: center;
   will-change: transform;
   transform-origin: center center;
+  transition: transform 0.7s ease;
 }
 .slide-bg-1 .slide-kb { background-image: url('hero1.webp'); }
 .slide-bg-2 .slide-kb { background-image: url('heropage2.webp'); }
 .slide-bg-3 .slide-kb { background-image: url('heropage3.webp'); }
 
-/* Ken Burns variants */
+/* Ken Burns variants — subtle */
 @keyframes kb-1 {
-  0%   { transform: scale(1.0)  translate(0%,    0%); }
-  100% { transform: scale(1.09) translate(-0.8%, -0.4%); }
+  0%   { transform: scale(1.0)  translate(0%,     0%); }
+  100% { transform: scale(1.04) translate(-0.4%, -0.2%); }
 }
 @keyframes kb-2 {
-  0%   { transform: scale(1.09) translate(0.8%,  0%); }
-  100% { transform: scale(1.01) translate(-0.4%, 0.2%); }
+  0%   { transform: scale(1.04) translate(0.4%,   0%); }
+  100% { transform: scale(1.0)  translate(-0.2%,  0.1%); }
 }
 @keyframes kb-3 {
-  0%   { transform: scale(1.0)  translate(-0.6%, 0.2%); }
-  100% { transform: scale(1.08) translate(0.6%, -0.3%); }
+  0%   { transform: scale(1.0)  translate(-0.3%,  0.1%); }
+  100% { transform: scale(1.04) translate(0.3%,  -0.2%); }
 }
 
 .hero-slide.active:nth-child(1) .slide-kb { animation: kb-1 9s ease-out both; }
@@ -1477,8 +1478,21 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
 
   window.goToSlide = function(n) {
     if (!slides) return;
+    // Freeze Ken Burns position on outgoing slide so it doesn't snap during fade
+    var outKb = slides[current].querySelector('.slide-kb');
+    if (outKb) {
+      var t = window.getComputedStyle(outKb).transform;
+      outKb.style.animation = 'none';
+      outKb.style.transform = (t && t !== 'none') ? t : '';
+    }
     slides[current].classList.remove('active');
     if (dots[current]) dots[current].classList.remove('active');
+    // Reset frozen slide after it's fully faded out
+    var prevSlide = slides[current];
+    setTimeout(function() {
+      var kb = prevSlide.querySelector('.slide-kb');
+      if (kb) { kb.style.animation = ''; kb.style.transform = ''; }
+    }, 800);
     current = (n + slides.length) % slides.length;
     slides[current].classList.add('active');
     if (dots[current]) dots[current].classList.add('active');

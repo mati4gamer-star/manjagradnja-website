@@ -870,13 +870,15 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
 .hero-slide.active:nth-child(2) .slide-kb { animation: kb-2 9s ease-out both; }
 .hero-slide.active:nth-child(3) .slide-kb { animation: kb-3 9s ease-out both; }
 
-/* Mobile: kill all animation/effects causing iOS rendering issues */
+/* Mobile: iOS-safe hero — scale only, no inset:-3%, no will-change */
+@keyframes kb-ios-in  { from { transform: scale(1.07); } to { transform: scale(1.0); } }
+@keyframes kb-ios-out { from { transform: scale(1.0);  } to { transform: scale(1.07); } }
 @media (max-width: 900px) {
-  .hero-slide.active:nth-child(1) .slide-kb,
-  .hero-slide.active:nth-child(2) .slide-kb,
-  .hero-slide.active:nth-child(3) .slide-kb { animation: none; }
-  .slide-kb { inset: 0; transition: none; will-change: auto; transform: none !important; }
-  .slide-bg { transform: none !important; will-change: auto; }
+  .hero-slide.active:nth-child(1) .slide-kb { animation: kb-ios-in  10s ease-out both; }
+  .hero-slide.active:nth-child(2) .slide-kb { animation: kb-ios-out 10s ease-in-out both; }
+  .hero-slide.active:nth-child(3) .slide-kb { animation: kb-ios-in  10s ease-out both; }
+  .slide-kb { inset: 0; transition: none; will-change: auto; }
+  .slide-bg { will-change: auto; }
   nav.scrolled { backdrop-filter: none; -webkit-backdrop-filter: none; }
 }
 

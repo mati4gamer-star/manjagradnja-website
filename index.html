@@ -2,6 +2,11 @@
 <html lang="sr">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="theme-color" content="#A67C2A">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Manja Gradnja – Gradnja Kuće Ključ u Ruke i Renoviranje | Vlasotince, Srbija</title>
 <meta name="description" content="Manja Gradnja – stručna građevinska firma iz Vlasotinca. Gradnja kuće ključ u ruke, renoviranje, fasade, gipsarski i keramičarski radovi širom Srbije. Pozovite: 060 711 9780.">
@@ -15,11 +20,11 @@
 <meta property="og:title" content="Manja Gradnja – Gradnja Kuće Ključ u Ruke i Renoviranje | Vlasotince">
 <meta property="og:description" content="Stručna građevinska firma iz Vlasotinca. Gradnja ključ u ruke, renoviranje, fasade i zanatski radovi širom Srbije. Pozovite: 060 711 9780.">
 <meta property="og:url" content="https://manjagradnja.rs/">
-<meta property="og:image" content="https://manjagradnja.rs/hero1.png">
+<meta property="og:image" content="https://manjagradnja.rs/hero1.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Manja Gradnja – Gradnja i Renoviranje | Vlasotince">
 <meta name="twitter:description" content="Gradnja kuće ključ u ruke, renoviranje, fasade i zanatski radovi širom Srbije.">
-<meta name="twitter:image" content="https://manjagradnja.rs/hero1.png">
+<meta name="twitter:image" content="https://manjagradnja.rs/hero1.webp">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -68,7 +73,7 @@
   }],
   "foundingDate": "2024",
   "priceRange": "$$",
-  "image": "https://manjagradnja.rs/hero1.png",
+  "image": "https://manjagradnja.rs/hero1.webp",
   "sameAs": ["https://wa.me/381607119780"]
 }
 </script>
@@ -830,7 +835,7 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
   will-change: transform;
 }
 /* placeholder gradients (swap with real images) */
-.slide-bg-1 { background-image: url('hero1.png'); background-size: cover; background-position: center; }
+.slide-bg-1 { background-image: url('hero1.webp'); background-size: cover; background-position: center; }
 .slide-bg-2 { background: linear-gradient(145deg, #0e1218 0%, #1e2830 50%, #131820 100%); }
 .slide-bg-3 { background: linear-gradient(145deg, #18120e 0%, #30201a 50%, #1a1410 100%); }
 
@@ -1240,7 +1245,7 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
 <!-- ═══ NAV ══════════════════════════════════════════════════════ -->
 <nav id="mainNav">
   <a class="nav-logo" href="index.html">
-    <img src="ChatGPT%20Image%20Jun%203%2C%202026%20at%2005_44_00%20PM.png" alt="Manja Gradnja logo">
+    <img src="ChatGPT%20Image%20Jun%203%2C%202026%20at%2005_44_00%20PM.webp" alt="Manja Gradnja logo">
   </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="radovi.html">Radovi</a></li>
@@ -1321,21 +1326,21 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
   </div>
   <div class="hp-grid">
     <a class="hp-item reveal" href="radovi.html">
-      <img src="novogradnja-1.jpg" alt="Stambena zgrada" loading="lazy">
+      <img src="novogradnja-1.webp" alt="Stambena zgrada" loading="lazy">
       <div class="hp-overlay">
         <span class="hp-cat">Novogradnja</span>
         <div class="hp-title">Stambena zgrada – troetažna</div>
       </div>
     </a>
     <a class="hp-item reveal" href="radovi.html">
-      <img src="kuca-3.jpg" alt="Porodična kuća" loading="lazy">
+      <img src="kuca-3.webp" alt="Porodična kuća" loading="lazy">
       <div class="hp-overlay">
         <span class="hp-cat">Kuća</span>
         <div class="hp-title">Porodična kuća – završeni radovi</div>
       </div>
     </a>
     <a class="hp-item reveal" href="radovi.html">
-      <img src="konstrukcija-1.jpg" alt="Gradilište" loading="lazy">
+      <img src="konstrukcija-1.webp" alt="Gradilište" loading="lazy">
       <div class="hp-overlay">
         <span class="hp-cat">Gradilište</span>
         <div class="hp-title">Armatura – dizanje kranom</div>
@@ -1457,7 +1462,17 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
   window.nextSlide = function() { goToSlide(current + 1); };
   window.prevSlide = function() { goToSlide(current - 1); };
 
-  document.addEventListener('DOMContentLoaded', init);
+  document.addEventListener('DOMContentLoaded', function() {
+    init();
+    var slider = document.getElementById('heroSlider');
+    if (!slider) return;
+    var tx = 0;
+    slider.addEventListener('touchstart', function(e) { tx = e.touches[0].clientX; }, { passive: true });
+    slider.addEventListener('touchend', function(e) {
+      var dx = tx - e.changedTouches[0].clientX;
+      if (Math.abs(dx) > 45) { dx > 0 ? nextSlide() : prevSlide(); }
+    }, { passive: true });
+  });
 })();
 
 /* ── NAV ──────────────────────────────────────────────────────── */

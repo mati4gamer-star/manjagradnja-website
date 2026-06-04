@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manja Gradnja – Gradnja i Renoviranje | Vlasotince</title>
+<meta name="description" content="Manja Gradnja – Kompletna gradnja kuće ključ u ruke, renoviranje, fasade, gipsarski radovi, keramika. Vlasotince, Jablanički okrug. Pozovite: 060 711 9780.">
+<meta property="og:title" content="Manja Gradnja – Gradnja i Renoviranje | Vlasotince">
+<meta property="og:description" content="Kompletna gradnja kuće ključ u ruke, renoviranje, fasade i zanatski radovi u Jablaničkom okrugu. Pozovite: 060 711 9780.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="sr_RS">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Manja Gradnja – Marjan Đorić PR",
+  "description": "Kompletna gradnja kuće ključ u ruke, renoviranje, fasade, gipsarski radovi i keramika u Vlasotincu i Jablaničkom okrugu.",
+  "telephone": "+381607119780",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Vlasotinačkih Brigada 29",
+    "addressLocality": "Vlasotince",
+    "postalCode": "16210",
+    "addressCountry": "RS"
+  },
+  "areaServed": [
+    {"@type": "AdministrativeArea", "name": "Jablanički okrug"},
+    {"@type": "AdministrativeArea", "name": "Južnobački okrug"}
+  ],
+  "foundingDate": "2024",
+  "priceRange": "$$",
+  "openingHours": "Mo-Sa 07:00-19:00"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<!-- scroll progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ═══ NAV ══════════════════════════════════════════════════════ -->
+<nav id="mainNav">
+  <a class="nav-logo" href="manja-gradnja.html">
+    <img src="ChatGPT%20Image%20Jun%203%2C%202026%20at%2005_44_00%20PM.png" alt="Manja Gradnja logo">
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="radovi.html">Radovi</a></li>
+    <li><a href="o-nama.html">O nama</a></li>
+    <li><a href="usluge.html">Usluge</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
+  </ul>
+  <a class="nav-cta" href="kontakt.html">Kontaktirajte nas</a>
+  <button class="burger" id="burger" onclick="toggleMenu()" aria-label="Meni">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ═══ HERO SLIDER ═════════════════════════════════════════════ -->
+<div class="hero-slider" id="heroSlider">
+  <!-- Slides (zameni .slide-bg-N sa background-image:url(...) kad stigne slika) -->
+  <div class="hero-slide active">
+    <div class="slide-bg slide-bg-1"></div>
+    <div class="slide-overlay"></div>
+  </div>
+  <div class="hero-slide">
+    <div class="slide-bg slide-bg-2"></div>
+    <div class="slide-overlay"></div>
+  </div>
+  <div class="hero-slide">
+    <div class="slide-bg slide-bg-3"></div>
+    <div class="slide-overlay"></div>
+  </div>
+
+  <!-- Hero sadrzaj -->
+  <div class="hero-content">
+    <h1 class="hero-h1">Gradnja i<br><em>renoviranje</em><br>po Vašoj meri</h1>
+    <a class="hero-cta" href="radovi.html">Naši radovi &rarr;</a>
+  </div>
+
+  <!-- Dots -->
+  <div class="slide-controls">
+    <div class="slide-dots">
+      <button class="slide-dot active" onclick="goToSlide(0)" aria-label="Slajd 1"></button>
+      <button class="slide-dot" onclick="goToSlide(1)" aria-label="Slajd 2"></button>
+      <button class="slide-dot" onclick="goToSlide(2)" aria-label="Slajd 3"></button>
+    </div>
+  </div>
+
+  <!-- Arrows -->
+  <div class="slide-arrows">
+    <button class="slide-arrow" onclick="prevSlide()" aria-label="Prethodni">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="slide-arrow" onclick="nextSlide()" aria-label="Sledeci">
+      <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
+    </button>
+  </div>
+
+  <!-- Scroll cue -->
+  <div class="hero-scroll">
+    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</div>
+
+<!-- ═══ O NAMA (teaser) ══════════════════════════════════════════ -->
+<section class="about-teaser">
+  <div class="at-grid">
+    <div class="at-text reveal">
+      <div class="section-label">O nama</div>
+      <h2 class="section-title">Manja Gradnja,<br>Vlasotince</h2>
+      <div class="gold-divider"></div>
+      <p>Firma sa sedištem u Vlasotincu specijalizovana za gradnju kuća ključ u ruke, renoviranje i sve završne radove. Naš cilj je da svaki projekat bude tačno onakav kakav ste zamislili.</p>
+      <a class="btn-outline" href="o-nama.html" style="margin-top:1.75rem; display:inline-flex;">Saznajte više &rarr;</a>
+    </div>
+    <div class="at-stats reveal-right">
+      <div class="at-stat-item">
+        <div class="at-num">30+</div>
+        <div class="at-label">Završenih projekata</div>
+      </div>
+      <div class="at-stat-item">
+        <div class="at-num">10+</div>
+        <div class="at-label">Vrsta usluga</div>
+      </div>
+      <div class="at-stat-item">
+        <div class="at-num">2024</div>
+        <div class="at-label">Godina osnivanja</div>
+      </div>
+      <div class="at-stat-item">
+        <div class="at-num">2</div>
+        <div class="at-label">Okruga pokrivenosti</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROJEKTI (preview) ═══════════════════════════════════════ -->
+<section class="home-projects">
+  <div class="hp-header reveal">
+    <div class="section-label">Projekti</div>
+    <h2 class="section-title">Naši radovi</h2>
+    <div class="gold-divider"></div>
+  </div>
+  <div class="hp-grid">
+    <div class="hp-item reveal">
+      <div class="img-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+      <div class="hp-overlay">
+        <span class="hp-cat">Renoviranje</span>
+        <div class="hp-title">Renoviran stan</div>
+      </div>
+    </div>
+    <div class="hp-item reveal">
+      <div class="img-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+      <div class="hp-overlay">
+        <span class="hp-cat">Keramika</span>
+        <div class="hp-title">Kupatilo – keramičarski radovi</div>
+      </div>
+    </div>
+    <div class="hp-item reveal">
+      <div class="img-ph"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+      <div class="hp-overlay">
+        <span class="hp-cat">Novogradnja</span>
+        <div class="hp-title">Gradnja kuće ključ u ruke</div>
+      </div>
+    </div>
+  </div>
+  <div class="hp-cta reveal">
+    <a class="btn-outline" href="radovi.html">Pogledajte sve radove &rarr;</a>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-wordmark">Manja <span>Gradnja</span></div>
+      <p>Građevinska firma sa sedištem u Vlasotincu. Gradnja ključ u ruke, renoviranje, fasade i sve zanatske radove izvodimo sa pažnjom i profesionalnošću.</p>
+      <div class="footer-social">
+        <a class="social-btn wa-btn" href="https://wa.me/381607119780" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+        <a class="social-btn" href="tel:+381607119780" aria-label="Pozovite nas">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 5.55 5.55l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Usluge</h4>
+      <ul>
+        <li><a href="#usluge">Gradnja ključ u ruke</a></li>
+        <li><a href="#usluge">Renoviranje</a></li>
+        <li><a href="#usluge">Fasade</a></li>
+        <li><a href="#usluge">Keramičarski radovi</a></li>
+        <li><a href="#usluge">Gipsarski radovi</a></li>
+        <li><a href="#usluge">Elektroinstalacije</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Kontakt</h4>
+      <ul>
+        <li><a href="tel:+381607119780">060 711 9780</a></li>
+        <li><a href="https://wa.me/381607119780" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="#kontakt">Pošalji upit</a></li>
+        <li><a href="#o-nama">O nama</a></li>
+        <li><a href="radovi.html">Naši radovi</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2024–2025 <span>Manja Gradnja</span> – Marjan Đorić PR · Vlasotince</p>
+    <p>Vlasotinačkih Brigada 29, Vlasotince</p>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

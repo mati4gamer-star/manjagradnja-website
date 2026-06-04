@@ -1288,6 +1288,22 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
 /* cta strip at bottom of home page sections */
 .section-cta { margin-top: 2.5rem; }
 
+/* ── FOOTER AGENCY ──────────────────────────────────────────────── */
+.footer-agency {
+  max-width: 1200px; margin: 0 auto;
+  padding: 1.1rem 5%;
+  border-top: 1px solid rgba(255,255,255,.07);
+  display: flex; align-items: center; justify-content: center; gap: .6rem;
+  color: rgba(255,255,255,.38); font-size: .8rem; letter-spacing: .07em;
+}
+.fa-dot { color: rgba(255,255,255,.2); }
+.footer-agency a {
+  color: var(--gold-light); text-decoration: none;
+  font-weight: 700; letter-spacing: .14em;
+  transition: color .2s, letter-spacing .2s;
+}
+.footer-agency a:hover { color: #fff; letter-spacing: .18em; }
+
 /* ── WHATSAPP FLOAT ─────────────────────────────────────────────── */
 .wa-float {
   position: fixed; bottom: 1.6rem; right: 1.5rem; z-index: 250;
@@ -1490,7 +1506,11 @@ nav.menu-open .burger span  { background: var(--text) !important; }
   <div class="footer-bottom">
     <p>© 2024–2025 <span>Manja Gradnja</span> – Marjan Đorić PR · Vlasotince</p>
     <p>Vlasotinačkih Brigada 29, Vlasotince</p>
-    <p style="color:rgba(255,255,255,.22);font-size:.71rem;margin-top:.25rem;">Dizajn &amp; razvoj: <a href="https://horizen.rs" target="_blank" rel="noopener" style="color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,.7)'" onmouseout="this.style.color='rgba(255,255,255,.35)'">horizen.rs</a></p>
+  </div>
+  <div class="footer-agency">
+    <span>Dizajn &amp; razvoj</span>
+    <span class="fa-dot">·</span>
+    <a href="https://horizen.rs" target="_blank" rel="noopener">HORIZEN AI</a>
   </div>
 </footer>
 

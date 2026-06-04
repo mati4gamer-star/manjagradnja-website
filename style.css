@@ -734,6 +734,22 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
 .footer-bottom p { font-size: .77rem; }
 .footer-bottom span { color: var(--gold-light); }
 
+/* ── FOOTER AGENCY ──────────────────────────────────────────────── */
+.footer-agency {
+  max-width: 1200px; margin: 0 auto;
+  padding: 1.1rem 5%;
+  border-top: 1px solid rgba(255,255,255,.07);
+  display: flex; align-items: center; justify-content: center; gap: .6rem;
+  color: rgba(255,255,255,.38); font-size: .8rem; letter-spacing: .07em;
+}
+.fa-dot { color: rgba(255,255,255,.2); }
+.footer-agency a {
+  color: var(--gold-light); text-decoration: none;
+  font-weight: 700; letter-spacing: .14em;
+  transition: color .2s, letter-spacing .2s;
+}
+.footer-agency a:hover { color: #fff; letter-spacing: .18em; }
+
 
 /* ── HERO SLIDER ───────────────────────────────────────────────── */
 .hero-slider {

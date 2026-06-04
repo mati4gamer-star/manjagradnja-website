@@ -1275,6 +1275,9 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
 /* cta strip at bottom of home page sections */
 .section-cta { margin-top: 2.5rem; }
 
+/* ── iOS DOUBLE-TAP FIX ─────────────────────────────────────────── */
+a, button, [role="button"] { touch-action: manipulation; cursor: pointer; }
+
 /* ── MOBILE MENU OPEN ───────────────────────────────────────────── */
 nav.menu-open {
   background: rgba(253,250,244,.97) !important;

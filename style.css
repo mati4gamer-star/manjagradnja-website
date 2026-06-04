@@ -1341,3 +1341,10 @@ nav.menu-open .burger span  { background: var(--text) !important; }
 .burger:focus, .burger:focus-visible { outline: none; box-shadow: none; }
 .nav-links li { list-style: none !important; }
 .nav-links li::marker, .nav-links li::before { display: none !important; content: '' !important; }
+
+/* ── iOS DOUBLE-TAP FIX ─────────────────────────────────────────── */
+/* Prevents iOS from requiring 2 taps on buttons/links with hover transforms */
+a, button, [role="button"] {
+  touch-action: manipulation;
+  cursor: pointer;
+}

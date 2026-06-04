@@ -834,9 +834,36 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
   will-change: transform;
 }
 /* placeholder gradients (swap with real images) */
-.slide-bg-1 { background-image: url('hero1.webp'); background-size: cover; background-position: center; }
-.slide-bg-2 { background-image: url('heropage2.webp'); background-size: cover; background-position: center; }
-.slide-bg-3 { background-image: url('heropage3.webp'); background-size: cover; background-position: center; }
+/* backgrounds on inner Ken Burns layer */
+.slide-bg-1, .slide-bg-2, .slide-bg-3 { background: none; }
+
+.slide-kb {
+  position: absolute; inset: -6%;
+  background-size: cover; background-position: center;
+  will-change: transform;
+  transform-origin: center center;
+}
+.slide-bg-1 .slide-kb { background-image: url('hero1.webp'); }
+.slide-bg-2 .slide-kb { background-image: url('heropage2.webp'); }
+.slide-bg-3 .slide-kb { background-image: url('heropage3.webp'); }
+
+/* Ken Burns variants */
+@keyframes kb-1 {
+  0%   { transform: scale(1.0)  translate(0%,    0%); }
+  100% { transform: scale(1.09) translate(-0.8%, -0.4%); }
+}
+@keyframes kb-2 {
+  0%   { transform: scale(1.09) translate(0.8%,  0%); }
+  100% { transform: scale(1.01) translate(-0.4%, 0.2%); }
+}
+@keyframes kb-3 {
+  0%   { transform: scale(1.0)  translate(-0.6%, 0.2%); }
+  100% { transform: scale(1.08) translate(0.6%, -0.3%); }
+}
+
+.hero-slide.active:nth-child(1) .slide-kb { animation: kb-1 9s ease-out both; }
+.hero-slide.active:nth-child(2) .slide-kb { animation: kb-2 9s ease-out both; }
+.hero-slide.active:nth-child(3) .slide-kb { animation: kb-3 9s ease-out both; }
 
 .slide-overlay {
   position: absolute; inset: 0;
@@ -1262,15 +1289,15 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
 <div class="hero-slider" id="heroSlider">
   <!-- Slides (zameni .slide-bg-N sa background-image:url(...) kad stigne slika) -->
   <div class="hero-slide active">
-    <div class="slide-bg slide-bg-1"></div>
+    <div class="slide-bg slide-bg-1"><div class="slide-kb"></div></div>
     <div class="slide-overlay"></div>
   </div>
   <div class="hero-slide">
-    <div class="slide-bg slide-bg-2"></div>
+    <div class="slide-bg slide-bg-2"><div class="slide-kb"></div></div>
     <div class="slide-overlay"></div>
   </div>
   <div class="hero-slide">
-    <div class="slide-bg slide-bg-3"></div>
+    <div class="slide-bg slide-bg-3"><div class="slide-kb"></div></div>
     <div class="slide-overlay"></div>
   </div>
 

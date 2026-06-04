@@ -819,7 +819,11 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
 
 /* ── HERO SLIDER ───────────────────────────────────────────────── */
 .hero-slider {
-  position: relative; height: 100vh; min-height: 600px;
+  position: relative;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100); /* JS-set value, stable on iOS */
+  height: 100svh; /* modern browsers: small viewport, ignores address bar */
+  min-height: 600px;
   overflow: hidden;
 }
 .hero-slide {
@@ -865,6 +869,14 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
 .hero-slide.active:nth-child(1) .slide-kb { animation: kb-1 9s ease-out both; }
 .hero-slide.active:nth-child(2) .slide-kb { animation: kb-2 9s ease-out both; }
 .hero-slide.active:nth-child(3) .slide-kb { animation: kb-3 9s ease-out both; }
+
+/* Mobile: disable Ken Burns and parallax to prevent layout shifts */
+@media (max-width: 900px) {
+  .hero-slide.active:nth-child(1) .slide-kb,
+  .hero-slide.active:nth-child(2) .slide-kb,
+  .hero-slide.active:nth-child(3) .slide-kb { animation: none; }
+  .slide-kb { inset: 0; transition: none; }
+}
 
 .slide-overlay {
   position: absolute; inset: 0;
@@ -1440,8 +1452,18 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
   }
 })();
 
-/* ── HERO PARALLAX ────────────────────────────────────────────── */
+/* ── MOBILE --vh FIX (iOS address bar) ───────────────────────── */
 (function() {
+  function setVh() {
+    document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + 'px');
+  }
+  setVh();
+  window.addEventListener('resize', setVh, { passive: true });
+})();
+
+/* ── HERO PARALLAX (desktop only) ────────────────────────────── */
+(function() {
+  if (window.innerWidth <= 900) return; // disable on mobile
   var bgs = null, ticking = false, sliderH = 0;
 
   function update() {

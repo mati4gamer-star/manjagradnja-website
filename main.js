@@ -205,17 +205,29 @@ if (heroStats) {
 }
 
 /* ── CONTACT FORM ─────────────────────────────────────────────── */
+var N8N_WEBHOOK_URL = 'WEBHOOK_URL_OVDE';
+
 function posaljiUpit() {
-  var ime = document.getElementById('f-ime').value.trim();
-  var tel = document.getElementById('f-tel').value.trim();
+  var ime    = document.getElementById('f-ime').value.trim();
+  var tel    = document.getElementById('f-tel').value.trim();
+  var usluga = document.getElementById('f-usluga').value.trim();
+  var poruka = document.getElementById('f-poruka').value.trim();
+
   if (!ime || !tel) {
     alert('Molimo unesite ime i broj telefona.');
     return;
   }
+
   var btn = document.querySelector('.btn-submit');
   btn.textContent = 'Šalje se...';
   btn.disabled = true;
-  setTimeout(function() {
+
+  fetch(N8N_WEBHOOK_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ ime: ime, tel: tel, usluga: usluga, poruka: poruka })
+  })
+  .then(function() {
     document.getElementById('formSuccess').style.display = 'block';
     document.getElementById('f-ime').value    = '';
     document.getElementById('f-tel').value    = '';
@@ -223,7 +235,12 @@ function posaljiUpit() {
     document.getElementById('f-poruka').value = '';
     btn.textContent = 'Pošalji upit';
     btn.disabled = false;
-  }, 600);
+  })
+  .catch(function() {
+    alert('Greška pri slanju. Pokušajte ponovo ili nas pozovite na 060 711 9780.');
+    btn.textContent = 'Pošalji upit';
+    btn.disabled = false;
+  });
 }
 
 /* ── LIGHTBOX ──────────────────────────────────────────────────── */
@@ -317,4 +334,20 @@ function posaljiUpit() {
   window.closeLightbox = close;
   window.lightboxNav = nav;
   document.addEventListener('DOMContentLoaded', init);
+})();
+
+/* ── iOS SINGLE-TAP FIX ─────────────────────────────────────────── */
+(function() {
+  var moved = false;
+  document.addEventListener('touchmove', function() { moved = true; }, {passive: true});
+  var sel = 'a.btn-outline, a.btn-primary, a.hero-cta, a.at-cta-link, a.hp-item, a.btn-channel';
+  document.querySelectorAll(sel).forEach(function(el) {
+    el.addEventListener('touchstart', function() { moved = false; }, {passive: true});
+    el.addEventListener('touchend', function(e) {
+      if (!moved && this.href) {
+        e.preventDefault();
+        window.location.href = this.href;
+      }
+    });
+  });
 })();

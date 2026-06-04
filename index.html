@@ -939,7 +939,7 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
   background: rgba(255,255,255,.65);
   transition: right .3s ease;
 }
-.hero-cta:hover { opacity: .82; box-shadow: 0 6px 22px rgba(255,255,255,.12); }
+.hero-cta:hover { opacity: .82; }
 .hero-cta:hover::after { right: 0; }
 
 /* slide controls */
@@ -1723,6 +1723,22 @@ if (heroStats) {
   }, { threshold: 0.5 });
   statsObserver.observe(heroStats);
 }
+
+/* ── iOS SINGLE-TAP FIX ─────────────────────────────────────────── */
+(function() {
+  var moved = false;
+  document.addEventListener('touchmove', function() { moved = true; }, {passive: true});
+  var sel = 'a.btn-outline, a.btn-primary, a.hero-cta, a.at-cta-link, a.hp-item, a.btn-channel';
+  document.querySelectorAll(sel).forEach(function(el) {
+    el.addEventListener('touchstart', function() { moved = false; }, {passive: true});
+    el.addEventListener('touchend', function(e) {
+      if (!moved && this.href) {
+        e.preventDefault();
+        window.location.href = this.href;
+      }
+    });
+  });
+})();
 
 /* ── CONTACT FORM ─────────────────────────────────────────────── */
 function posaljiUpit() {

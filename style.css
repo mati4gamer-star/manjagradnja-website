@@ -23,7 +23,7 @@
   --wa:         #25D366;
 }
 
-html { scroll-behavior: smooth; overscroll-behavior-y: none; }
+html { scroll-behavior: smooth; }
 body {
   font-family: 'DM Sans', sans-serif;
   background: var(--white);

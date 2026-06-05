@@ -23,7 +23,7 @@
   --wa:         #25D366;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overscroll-behavior-y: none; }
 body {
   font-family: 'DM Sans', sans-serif;
   background: var(--white);
@@ -686,7 +686,7 @@ section { padding: 6rem 5%; }
 footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5% 2rem; }
 .footer-inner {
   max-width: 1200px; margin: 0 auto;
-  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem;
+  display: grid; grid-template-columns: 1.6fr 1fr; gap: 3rem;
   padding-bottom: 3rem;
   border-bottom: 1px solid rgba(255,255,255,.07);
 }

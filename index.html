@@ -112,7 +112,7 @@
   --wa:         #25D366;
 }
 
-html { scroll-behavior: smooth; background: #1a1512; }
+html { scroll-behavior: smooth; background: #1a1512; overscroll-behavior-y: none; }
 body {
   font-family: 'DM Sans', sans-serif;
   background: #1a1512;
@@ -775,7 +775,7 @@ section { padding: 6rem 5%; }
 footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5% 2rem; }
 .footer-inner {
   max-width: 1200px; margin: 0 auto;
-  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem;
+  display: grid; grid-template-columns: 1.6fr 1fr; gap: 3rem;
   padding-bottom: 3rem;
   border-bottom: 1px solid rgba(255,255,255,.07);
 }
@@ -1479,25 +1479,12 @@ nav.menu-open .burger span  { background: var(--text) !important; }
     </div>
 
     <div class="footer-col">
-      <h4>Usluge</h4>
+      <h4>Stranice</h4>
       <ul>
-        <li><a href="/usluge">Gradnja ključ u ruke</a></li>
-        <li><a href="/usluge">Renoviranje</a></li>
-        <li><a href="/usluge">Fasade</a></li>
-        <li><a href="/usluge">Keramičarski radovi</a></li>
-        <li><a href="/usluge">Gipsarski radovi</a></li>
-        <li><a href="/usluge">Elektroinstalacije</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h4>Kontakt</h4>
-      <ul>
-        <li><a href="tel:+381607119780">060 711 9780</a></li>
-        <li><a href="https://wa.me/381607119780" target="_blank" rel="noopener">WhatsApp</a></li>
-        <li><a href="/kontakt">Pošalji upit</a></li>
-        <li><a href="/o-nama">O nama</a></li>
         <li><a href="/radovi">Naši radovi</a></li>
+        <li><a href="/usluge">Usluge</a></li>
+        <li><a href="/o-nama">O nama</a></li>
+        <li><a href="/kontakt">Kontakt</a></li>
         <li><a href="/privatnost">Politika privatnosti</a></li>
       </ul>
     </div>

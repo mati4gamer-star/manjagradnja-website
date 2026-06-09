@@ -952,6 +952,10 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
 .hero-cta:hover { opacity: .82; }
 .hero-cta:hover::after { right: 0; }
 
+/* mobile-only hero extras — hidden on desktop, shown in @media below */
+.hero-eyebrow-m, .hero-sub-m, .hero-cta-primary { display: none; }
+.hero-actions { display: flex; align-items: center; gap: 1.4rem; }
+
 /* slide controls */
 .slide-controls {
   position: absolute; bottom: 2.5rem; left: 8%;
@@ -1132,8 +1136,62 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
   .stat { padding: 0 1.5rem; }
 }
 @media (max-width: 600px) {
-  .hero-content { padding: 0 6%; }
-  .slide-controls { left: 6%; }
+  /* ── MOBILE HERO ─────────────────────────────────────── */
+  .hero-slider { min-height: 540px; }
+  .slide-overlay {
+    background: linear-gradient(to bottom,
+      rgba(0,0,0,.55) 0%,
+      rgba(0,0,0,.28) 30%,
+      rgba(0,0,0,.45) 62%,
+      rgba(0,0,0,.82) 100%);
+  }
+  .hero-content {
+    justify-content: flex-end;
+    padding: 0 7% 6.5rem;
+  }
+  .hero-eyebrow-m {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-size: .68rem; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--gold-light); font-weight: 600; margin-bottom: 1.05rem;
+    animation: fade-up .8s ease both .1s;
+  }
+  .hero-eyebrow-m::before { content: ''; width: 26px; height: 1.5px; background: var(--gold-light); }
+  .hero-h1 {
+    font-size: clamp(3.3rem, 13.5vw, 4.4rem);
+    line-height: 1.03; letter-spacing: -.02em;
+    margin-bottom: 1.2rem; max-width: 100%;
+    text-shadow: 0 2px 34px rgba(0,0,0,.4);
+  }
+  .hero-sub-m {
+    display: block; color: rgba(255,255,255,.85);
+    font-size: 1.04rem; line-height: 1.62; max-width: 330px;
+    margin-bottom: 2.1rem;
+    animation: fade-up .8s ease both .42s;
+  }
+  .hero-actions {
+    flex-direction: column; align-items: stretch;
+    gap: 1rem; width: 100%; max-width: 340px;
+    animation: fade-up .8s ease both .5s;
+  }
+  .hero-cta-primary {
+    display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+    background: var(--gold); color: #fff;
+    font-weight: 600; font-size: 1.02rem; letter-spacing: .02em;
+    padding: 1.1rem 1.5rem; border-radius: 7px; min-height: 56px;
+    text-decoration: none;
+    box-shadow: 0 10px 30px rgba(166,124,42,.42);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .hero-cta-primary:active { transform: scale(.98); }
+  .hero-cta {
+    align-self: center; justify-content: center;
+    padding: .35rem 0; font-size: 1rem; color: #fff;
+    animation: none;
+  }
+  .hero-cta::after { left: 0; right: 0; bottom: -1px; background: rgba(255,255,255,.55); }
+  .slide-controls { bottom: 1.9rem; left: 50%; transform: translateX(-50%); }
+  .slide-arrows { display: none; }
+  .hero-scroll { display: none; }
   .hp-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
   .hp-item:first-child { grid-column: span 2; height: 240px; }
   .hp-item:first-child .img-ph { min-height: 240px; }
@@ -1151,7 +1209,6 @@ footer { background: var(--text); color: rgba(255,255,255,.55); padding: 4rem 5%
   section { padding: 3.5rem 5%; }
   .hero { padding: 5.5rem 5% 4rem; }
   .hero-decor { display: none; }
-  .hero h1 { font-size: clamp(3.2rem, 9vw, 4rem); }
   .hero-badge { font-size: .68rem; padding: .4rem 1rem; }
   .hero-btns { flex-direction: column; align-items: stretch; }
   .hero-btns .btn-primary,
@@ -1389,8 +1446,13 @@ nav.menu-open .burger span  { background: var(--text) !important; }
 
   <!-- Hero sadrzaj -->
   <div class="hero-content">
+    <span class="hero-eyebrow-m">Vlasotince · Ključ u ruke</span>
     <h1 class="hero-h1">Gradnja i<br><em>renoviranje</em><br>po Vašoj meri</h1>
-    <a class="hero-cta" href="/radovi">Naši radovi &rarr;</a>
+    <p class="hero-sub-m">Od temelja do useljenja — gradimo kvalitetno, pouzdano i po Vašoj meri.</p>
+    <div class="hero-actions">
+      <a class="hero-cta-primary" href="/kontakt">Zatraži ponudu</a>
+      <a class="hero-cta" href="/radovi">Naši radovi &rarr;</a>
+    </div>
   </div>
 
   <!-- Dots -->
